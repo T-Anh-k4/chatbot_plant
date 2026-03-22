@@ -8,7 +8,7 @@ settings = load_settings()
 logger = logging.getLogger("ingestion")
 
 def load_data():
-    data = json.load(open(Path(settings["data"]["raw_dir"]) / "newdata.json", "r", encoding="utf-8"))
+    data = json.load(open(Path(settings["data"]["raw_dir"]) / "database_plant.json", "r", encoding="utf-8"))
     
     if not data:
         logger.error("No raw data found")

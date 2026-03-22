@@ -8,7 +8,7 @@ from ingestion.chunking.news import chunk_news
 from ingestion.chunking.projectCategories import chunk_project_categories
 from ingestion.chunking.projects import chunk_projects
 from core.logging_setup import setup_logging
-from ingestion.chunking.tomatoDiseases import chunk_diseases 
+from ingestion.chunking.plants import chunk_full_diseases 
 
 from vectorstore.upsert import upsert_chunks
 
@@ -25,7 +25,7 @@ def run_ingestion_pipeline():
     # all_chunks.extend(chunk_news())
     # all_chunks.extend(chunk_project_categories())
     # all_chunks.extend(chunk_projects())
-    all_chunks.extend(chunk_diseases())
+    all_chunks.extend(chunk_full_diseases())
 
     
     if not all_chunks:
