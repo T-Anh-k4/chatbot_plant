@@ -20,6 +20,7 @@ handlers:
     level: INFO
     formatter: simple
     filename: logs/application.log
+    encoding: utf-8
 
 # Cau hinh logger cho tung module
 loggers:
