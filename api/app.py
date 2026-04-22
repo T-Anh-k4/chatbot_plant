@@ -14,7 +14,7 @@ logger = logging.getLogger("api")
 async def lifespan(app: FastAPI):
     """Startup and shutdown events"""
     # Startup
-    logger.info("Starting NMK Chatbot API...")
+    logger.info("Starting Tanh Chatbot API...")
     try:
         initialize_rag_components()
         logger.info("Application startup completed")
@@ -24,11 +24,11 @@ async def lifespan(app: FastAPI):
     yield
     
     # Shutdown
-    logger.info("Shutting down NMK Chatbot API...")
+    logger.info("Shutting down Tanh Chatbot API...")
 
 app = FastAPI(
-    title="NMK Chatbot API",
-    description="API for NMK Architecture Chatbot",
+    title="Tanh Chatbot API",
+    description="API for Tanh Architecture Chatbot",
     version="1.0.0",
     lifespan=lifespan
 )
@@ -62,7 +62,7 @@ app.include_router(predict_router, prefix="/api", tags=["plant-disease"])
 async def root():
     """Root endpoint"""
     return {
-        "message": "NMK Chatbot API",
+        "message": "tanh Chatbot API",
         "version": "1.0.0",
         "docs": "/docs"
     }
@@ -70,3 +70,5 @@ async def root():
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("api.app:app", host="0.0.0.0", port=8000, reload=True)
+    print("===== CONTEXT =====")
+    print(context)
