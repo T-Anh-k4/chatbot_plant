@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "NMK Chatbot",
-  description: "Chatbot trợ lý thông minh cho NMK Architecture",
+  title: "Tanh Chatbot",
+  description: "Chatbot trợ lý thông minh cho Tanh Architecture",
 };
 
 export default function RootLayout({children}: Readonly<{ children: React.ReactNode; }>) {

@@ -40,6 +40,11 @@ export interface ChatResponse {
   session_id: string;
 }
 
+export interface PredictResponse {
+  disease: string;
+  confidence: number;
+}
+
 export const chatService = {
   async sendMessage(request: ChatRequest): Promise<ChatResponse> {
     try {
@@ -57,6 +62,17 @@ export const chatService = {
       console.error('Error sending message:', error);
       throw error;
     }
+  },
+
+  async predictDisease(file: File): Promise<PredictResponse> {
+    const formData = new FormData();
+    formData.append('image', file);
+    const response = await axios.post<PredictResponse>(
+      `${API_URL}/api/predict-disease`,
+      formData,
+      { headers: { 'Content-Type': 'multipart/form-data' } }
+    );
+    return response.data;
   },
 
   async healthCheck(): Promise<boolean> {
