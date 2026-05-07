@@ -18,9 +18,16 @@ async def predict(image: UploadFile = File(...)):
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(image.file, buffer)
 
-    disease, confidence = predict_disease(file_path)
-
-    return {
-        "disease": disease,
-        "confidence": confidence
-    }
+    try:
+        disease, confidence = predict_disease(file_path)
+        return {
+            "disease": disease,
+            "confidence": confidence
+        }
+    except Exception as e:
+        import traceback
+        return {
+            "disease": "Error: " + str(e),
+            "confidence": 0.0,
+            "traceback": traceback.format_exc()
+        }

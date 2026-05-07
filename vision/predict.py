@@ -1,10 +1,11 @@
+# 
 import numpy as np
 import cv2
 
 from .model_loader import get_model
 from .labels import CLASS_NAMES
 
-IMG_SIZE = 150
+IMG_SIZE = 224
 
 
 def format_disease_name(name):
@@ -20,7 +21,7 @@ def predict_disease(image_path):
     model = get_model()
 
     img = cv2.imread(image_path)
-    img = cv2.resize(img, (150,150))
+    img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
     img = img / 255.0
 
     img = np.expand_dims(img, axis=0)
