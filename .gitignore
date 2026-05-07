@@ -49,5 +49,6 @@ data/raw/
 data/processed/
 outputs/
 
+models/
 *.h5
 *.keras
