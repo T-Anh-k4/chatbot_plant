@@ -48,3 +48,6 @@ dist/
 data/raw/
 data/processed/
 outputs/
+
+*.h5
+*.keras
